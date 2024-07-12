@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: roboto;
+    overflow-x: hidden;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.prod-img {
+    text-align: center;
+}
+
+.prod-img>img {
+    height: 10rem;
+    object-fit: contain;
+}
