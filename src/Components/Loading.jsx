@@ -16,12 +16,6 @@ const Loading = () => {
         height={40}
         style={{ marginBlockEnd: 4 }}
       />
-      <Skeleton
-        variant="rounded"
-        width={"100%"}
-        height={32}
-        style={{ marginBlockEnd: 4 }}
-      />
       <Skeleton variant="rounded" width={"100%"} height={20} />
     </Box>
   );
