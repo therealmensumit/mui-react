@@ -32,9 +32,18 @@ const Products = () => {
     setVisibleProducts((prev) => prev + 8); // Increment the number of visible products by 8
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+  };
+
   return (
     <>
       <Box py={6}>
+        <Box align="right" marginInlineEnd={4}>
+          <Button variant="outlined" onClick={handleLogout}>
+            Logout
+          </Button>
+        </Box>
         <Container>
           <Grid container spacing={3}>
             <Grid item xs={12}>
@@ -56,8 +65,10 @@ const Products = () => {
                   <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
                     <ProductCard
                       img={product.thumbnail}
+                      discount={product.discountPercentage}
                       title={product.title}
                       price={product.price}
+                      rating={product.rating}
                     />
                   </Grid>
                 ))}

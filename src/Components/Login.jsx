@@ -27,6 +27,7 @@ const Login = () => {
       const res = await axios.post("https://dummyjson.com/user/login", {
         username: formData.username,
         password: formData.password,
+        expiresInMins: 1,
       });
       if (res.status === 200) {
         navigate("/products");
