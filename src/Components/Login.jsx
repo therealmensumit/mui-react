@@ -1,7 +1,11 @@
+// Login.js
+
 import { Box, Button, FormControl, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginSuccess, loginFailure } from "../Store/store"; // Adjust the path as per your project structure
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +16,7 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleInput = (e) => {
     setFormData({
@@ -29,10 +34,15 @@ const Login = () => {
         password: formData.password,
         expiresInMins: 1,
       });
+
       if (res.status === 200) {
+        dispatch(loginSuccess(formData.username)); // Dispatch login success action
         navigate("/products");
       } else {
         setError("Invalid username or password. Please try again.");
+        dispatch(
+          loginFailure("Invalid username or password. Please try again.")
+        );
       }
       console.log(res);
     } catch (err) {

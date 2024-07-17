@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import { Login, Products } from "./Components";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/products" element={<Products />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
